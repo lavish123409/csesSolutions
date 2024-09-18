@@ -85,6 +85,15 @@ void printma(T a[], T b[], int l, int r, function<ll(ll,ll)> merge) {int f = 0; 
     MISTAKE
     did not realize that expected value would be different for each cell
     also, k turns means that we have to run the loop k times, that is we have to take the dp array of size dp[k+1][64]
+
+    Solution
+    though the solution is much easier
+    if we would see the 2d table made above, we can see that any i number of candies is maximum in the range i^2 - (i-1)^2, the area of k square - area of k-1 square
+    so we can also find the expected value by
+        EV = 1 * 1 + 2 * 3 + 3 * 5 + ... k * (k^2 - (k-1)^2)
+    similarly, we can do it for 3 children, which would become the cuboid, that is maximum in the range i^3 - (i-1)^3, the volume of k square - volume of k-1 square
+    so, for n children
+        EV = 1 * (1^n - 0^n) + 2 * (2^n - 1^n) + 3 * (3^n - 2^n) + ... k * (k^n - (k-1)^n)
     
 */
 // #define double long double
