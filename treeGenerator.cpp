@@ -91,6 +91,12 @@ int main(int argc, char* argv[])
 {
 	srand(time(0));
 	// int n = 10;
+
+	if(argc != 2) {
+		cout << "Usage: ./treeGenerator n [n is number of vertices]" << "\n";
+		return 1;
+	}
+
 	generateRandomTree(atoi(argv[1]));
 
 	return 0;
