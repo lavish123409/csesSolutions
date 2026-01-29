@@ -35,6 +35,19 @@ void djikstra(vector<array<int,2>> adj[], int n, int s, vector<int>& dis, vector
 	}
 }
 
+// djikstra will fail if there is a negative cycle in the graph
+// djikstra cannot detect negative weight edge also
+
+// For ex: V={A,B,C} ; E = {(A,C,2), (A,B,5), (B,C,-10)}
+// Dijkstra from A will first develop C, and will later fail to find A->B->C
+// Note that this is important, because in each relaxation step, the algorithm assumes the "cost" to the "closed" nodes is indeed minimal, and thus the node that will next be selected is also minimal.
+
+// The idea of it is: If we have a vertex in open such that its cost is minimal - by adding any positive number to any vertex - the minimality will never change.
+// Without the constraint on positive numbers - the above assumption is not true.
+
+// Since we do "know" each vertex which was "closed" is minimal - we can safely do the relaxation step - without "looking back". If we do need to "look back" - Bellman-Ford offers a recursive-like (DP) solution of doing so.
+
+
 int main() {
 
 	return 0;
